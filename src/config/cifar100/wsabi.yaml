@@ -1,0 +1,38 @@
+# seed: 0
+collection: null
+experiment:
+  log_dir: '../logs'
+  data_dir: '../data'
+dataset: 'cifar100'
+search_space:
+  fast_mode: True
+numerics:
+  method: 'bayesian_quadrature'
+  initialisation:
+    num_samples: 10
+  evaluation_budget: 150
+  architecture_likelihood:
+    split: 'valid'
+    ensemble_size: 1
+    weights: 'even'
+  surrogate:
+    warping: 'linearised-sqrt'
+  acquisition:
+    strategy: 'uncertainty_sampling_sqrt'
+    num_initial: 1024
+    mutate_size: 128
+  kernel_integration:
+    num_samples: 2048
+    batch_size: null
+  sum_space: 'probability'
+  nas_options:
+    seed: 777
+    train_epochs: 200
+    swag: False
+  test_batch_size: 5000
+  recombination:
+    method: null
+    level: null
+debug_options:
+  smoke_test: False
+  test_set: 'grid'

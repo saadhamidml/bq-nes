@@ -1,0 +1,34 @@
+# seed: 0
+collection: null
+experiment:
+  log_dir: '../logs'
+  data_dir: '../data'
+  smoke_test: False
+dataset: 'ImageNet16-120'
+search_space:
+  fast_mode: True
+numerics:
+  method: 'bayesian_quadrature'
+  initialisation:
+    num_samples: 10
+  evaluation_budget: 150
+  surrogate:
+    warping: null
+    normalise_y: True
+  acquisition:
+    strategy: 'uncertainty_sampling_sqrt'
+    num_initial: 1024
+    mutate_size: 128
+  kernel_integration:
+    num_samples: 2048
+    batch_size: null
+  sum_space: 'logit'
+  nas_options:
+    seed: 777
+    train_epochs: 200
+    # restrict_archs_to_best: 10000
+    swag: False
+  test_batch_size: 3000
+debug_options:
+  smoke_test: False
+  test_set: 'grid'

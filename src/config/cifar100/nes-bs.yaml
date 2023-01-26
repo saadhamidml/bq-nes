@@ -1,0 +1,23 @@
+# seed: 489238141
+collection: null
+load_collection: 'collection_cifar100_wsabi_09132116'
+experiment:
+  log_dir: '../logs'
+  data_dir: '../data'
+dataset: 'cifar100'
+search_space:
+  fast_mode: True
+numerics:
+  method: 'neural_ensemble_search_bayesian_sampling'
+  evaluation_budget: 150
+  # load_design_set: 3403
+  iterations: 10
+  ensemble_size: 3
+  sum_space: 'probability'
+  nas_options:
+    seed: 777
+    train_epochs: 200
+    batch_size: 5000
+  test_batch_size: 5000
+debug_options:
+  smoke_test: False

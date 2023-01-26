@@ -1,0 +1,25 @@
+# seed: 489238141
+collection: null
+# load_collection: 'collection_imagenet16-120_wsabi_08102023'
+load_collection: 'collection_imagenet16-120_bq-ei_10030948'
+experiment:
+  log_dir: '../logs'
+  data_dir: '../data'
+dataset: 'ImageNet16-120'
+search_space:
+  fast_mode: True
+numerics:
+  method: 'neural_ensemble_search_regularised_evolution'
+  evaluation_budget: 150
+  # load_design_set: 3403
+  population_size: 50
+  num_parent_candidates: 10
+  ensemble_size: 3
+  sum_space: 'probability'
+  nas_options:
+    seed: 777
+    train_epochs: 200
+    batch_size: 3000
+  test_batch_size: 3000
+debug_options:
+  smoke_test: False
