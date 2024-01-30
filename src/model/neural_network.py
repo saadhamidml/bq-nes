@@ -182,7 +182,8 @@ def train_swa_gaussian(
         swa_scheduler.step()
     swa_utils.update_bn(train_loader, swa_model)
     swa_model.cuda()
-    
+
+    loss_fn = torch.nn.CrossEntropyLoss(reduction='sum')
     log_model_evidence = torch.tensor(0.).cuda()
     log_laplace_correction = torch.tensor(0.).cuda()
     with torch.no_grad():
