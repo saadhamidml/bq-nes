@@ -9,17 +9,20 @@ search_space:
 numerics:
   method: 'bayesian_quadrature'
   initialisation:
-    num_samples: 50
-  evaluation_budget: 50
+    num_samples: 10
+  evaluation_budget: 25
   surrogate:
     warping: null
   acquisition:
-    strategy: 'top-valid'
-    num_initial: 1024
-    mutate_size: 128
+    strategy: 'uncertainty_sampling_sqrt'
+    num_initial: 75
+    mutate_size: null
   kernel_integration:
-    num_samples: 2048
+    num_samples: 75
     batch_size: null
+  truncate:
+    method: "optimise_weights_kernel_reweighting"
+    level: 3
   sum_space: 'logit'
   nas_options:
     seed: 777
